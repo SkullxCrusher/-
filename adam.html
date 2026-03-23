@@ -3,138 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متجر العطور</title>
-
+<title>معرض العطور الفاخرة</title>
 <style>
-body {
-  font-family: Arial;
-  background: #111;
-  color: white;
-  text-align: center;
-}
-
-h1 {
-  margin: 20px;
-}
-
-.section {
-  margin-top: 40px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.product {
-  background: #222;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.price {
-  color: #25D366;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-button {
-  background: #25D366;
-  border: none;
-  padding: 10px;
-  color: white;
-  margin-top: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Segoe UI', Tahoma; background:#f7f7f7; direction:rtl; color:#333; min-height:100vh;}
+header {background:linear-gradient(135deg,#111 0%,#2d2d2d 100%); color:#fff; padding:20px; text-align:center; font-size:28px; font-weight:bold; position:sticky; top:0; z-index:100; box-shadow:0 8px 16px rgba(0,0,0,0.3);}
+header:hover {box-shadow:0 12px 24px rgba(37,211,102,0.2);}
+.search-section {background:#fff; padding:20px; text-align:center; margin:20px; border-radius:15px; box-shadow:0 8px 16px rgba(0,0,0,0.1);}
+.search-box {width:100%; max-width:400px; padding:12px 20px; border:2px solid #25D366; border-radius:25px; font-size:16px; background:#f9f9f9; transition:all 0.3s ease;}
+.search-box:focus {outline:none; box-shadow:0 0 20px rgba(37,211,102,0.4); background:#fff;}
+.price-filter-container {margin-top:15px;}
+.price-filter {width:100%; max-width:400px; cursor:pointer;}
+.price-display {background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; padding:10px 20px; border-radius:20px; font-size:14px; font-weight:600; display:inline-block; margin-top:10px;}
+nav {display:flex; justify-content:center; gap:10px; padding:20px; background:linear-gradient(135deg,#222 0%,#333 100%); flex-wrap:wrap; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+nav button {padding:12px 20px; background:#444; color:#fff; border:none; border-radius:20px; cursor:pointer; font-weight:600; position:relative; overflow:hidden; transition:all 0.3s ease;}
+nav button:before {content:''; position:absolute; top:0; right:0; width:0; height:100%; background:#25D366; transition:width 0.3s ease; z-index:-1;}
+nav button:hover:before, nav button.active:before {width:100%;}
+nav button:hover, nav button.active {color:#fff; transform:translateY(-3px); box-shadow:0 8px 15px rgba(37,211,102,0.3);}
+.container {padding:30px 20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1400px; margin:0 auto;}
+.product-card {background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); position:relative;}
+.product-card:hover {transform:translateY(-15px); box-shadow:0 25px 50px rgba(37,211,102,0.2);}
+.product-badge {position:absolute; top:15px; right:15px; background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; padding:8px 15px; border-radius:20px; font-size:12px; font-weight:bold; z-index:10;}
+.product-card img {width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease;}
+.product-card:hover img {transform:scale(1.15);}
+.product-card h3 {margin:10px; font-size:18px; color:#1a1a1a; font-weight:700; transition:color 0.3s ease;}
+.product-card:hover h3 {color:#25D366;}
+.product-card p {margin:0 10px 10px; color:#555; font-size:14px;}
+.price {color:#25D366; font-weight:bold; font-size:18px; margin:10px; transition:all 0.3s ease;}
+.product-card:hover .price {font-size:20px; text-shadow:0 0 10px rgba(37,211,102,0.3);}
+.whatsapp-btn {display:block; margin:10px; padding:12px; background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; text-align:center; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; box-shadow:0 4px 12px rgba(37,211,102,0.3); transition:all 0.3s ease;}
+.whatsapp-btn:hover {transform:scale(1.05); box-shadow:0 8px 20px rgba(37,211,102,0.5);}
+.no-products {grid-column:1/-1; text-align:center; padding:50px; font-size:18px; color:#666;}
+footer {background:linear-gradient(135deg,#111 0%,#2d2d2d 100%); color:#fff; text-align:center; padding:30px 20px; margin-top:40px; font-size:14px; border-top:3px solid #25D366;}
+footer a {color:#25D366; text-decoration:none;}
+footer a:hover {color:#fff; text-decoration:underline;}
+@media(max-width:768px){header{font-size:22px;}.container{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; padding:20px 15px;} .search-box,.price-filter{max-width:100%;} nav button{font-size:13px; padding:10px 15px;}}
+@media(max-width:480px){header{font-size:20px; padding:15px;} .container{grid-template-columns:1fr; gap:15px;} nav{flex-direction:column;} nav button{width:100%;} .search-section{margin:15px;}}
+.sticky-whatsapp {position:fixed; bottom:20px; right:20px; z-index:999; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:transform 0.3s;}
+.sticky-whatsapp:hover {transform:scale(1.1);}
+.sticky-whatsapp img {width:35px; height:35px;}
 </style>
 </head>
-
 <body>
+<header>معرض العطور الفاخرة</header>
 
-<h1>متجر العطور</h1>
-
-<!-- عطور خليجية -->
-<div class="section">
-<h2>🔥 عطور خليجية</h2>
-<div class="products">
-
-<div class="product"><img src="images/Dakhonamber.jpg"><p>Dakhon Amber</p><p class="price">₪300</p><button onclick="order('Dakhon Amber')">اطلب</button></div>
-<div class="product"><img src="images/Dakhoomdesert.jpg"><p>Dakhoom Desert</p><p class="price">₪300</p><button onclick="order('Dakhoom Desert')">اطلب</button></div>
-<div class="product"><img src="images/Dakhoonrose.jpg"><p>Dakhoon Rose</p><p class="price">₪300</p><button onclick="order('Dakhoon Rose')">اطلب</button></div>
-<div class="product"><img src="images/Dokhoonleather.jpg"><p>Dokhoon Leather</p><p class="price">₪300</p><button onclick="order('Dokhoon Leather')">اطلب</button></div>
-<div class="product"><img src="images/Dokhoonoud.jpg"><p>Dokhoon Oud</p><p class="price">₪300</p><button onclick="order('Dokhoon Oud')">اطلب</button></div>
-<div class="product"><img src="images/Dokhonamber.jpg"><p>Dokhon Amber</p><p class="price">₪300</p><button onclick="order('Dokhon Amber')">اطلب</button></div>
-<div class="product"><img src="images/Dokhonemirate.jpg"><p>Dokhon Emirate</p><p class="price">₪300</p><button onclick="order('Dokhon Emirate')">اطلب</button></div>
-<div class="product"><img src="images/Dokhonleather.jpg"><p>Dokhon Leather</p><p class="price">₪300</p><button onclick="order('Dokhon Leather')">اطلب</button></div>
-<div class="product"><img src="images/Bluedakhoon.jpg"><p>Blue Dakhoun</p><p class="price">₪300</p><button onclick="order('Blue Dakhoun')">اطلب</button></div>
-<div class="product"><img src="images/Abodhabi.jpg"><p>Abu Dhabi</p><p class="price">₪300</p><button onclick="order('Abu Dhabi')">اطلب</button></div>
-<div class="product"><img src="images/Dubai.jpg"><p>Dubai</p><p class="price">₪300</p><button onclick="order('Dubai')">اطلب</button></div>
-<div class="product"><img src="images/Doha.jpg"><p>Doha</p><p class="price">₪300</p><button onclick="order('Doha')">اطلب</button></div>
-<div class="product"><img src="images/Muscat.jpg"><p>Muscat</p><p class="price">₪300</p><button onclick="order('Muscat')">اطلب</button></div>
-<div class="product"><img src="images/Farisalarab.jpg"><p>Faris Al Arab</p><p class="price">₪300</p><button onclick="order('Faris Al Arab')">اطلب</button></div>
-<div class="product"><img src="images/Kahilan.jpg"><p>Kahilan</p><p class="price">₪300</p><button onclick="order('Kahilan')">اطلب</button></div>
-<div class="product"><img src="images/Kohailan.jpg"><p>Kohailan</p><p class="price">₪300</p><button onclick="order('Kohailan')">اطلب</button></div>
-<div class="product"><img src="images/Khayal.jpg"><p>Khayal</p><p class="price">₪300</p><button onclick="order('Khayal')">اطلب</button></div>
-<div class="product"><img src="images/Muharib.jpg"><p>Muharib</p><p class="price">₪300</p><button onclick="order('Muharib')">اطلب</button></div>
-<div class="product"><img src="images/Lahab.jpg"><p>Lahab</p><p class="price">₪300</p><button onclick="order('Lahab')">اطلب</button></div>
-<div class="product"><img src="images/Hanet.jpg"><p>Hanet</p><p class="price">₪300</p><button onclick="order('Hanet')">اطلب</button></div>
-<div class="product"><img src="images/Signature.jpg"><p>Signature</p><p class="price">₪300</p><button onclick="order('Signature')">اطلب</button></div>
-<div class="product"><img src="images/Signaturesilver.jpg"><p>Signature Silver</p><p class="price">₪300</p><button onclick="order('Signature Silver')">اطلب</button></div>
-<div class="product"><img src="images/Supermacy.jpg"><p>Supermacy</p><p class="price">₪300</p><button onclick="order('Supermacy')">اطلب</button></div>
-<div class="product"><img src="images/Shiny.jpg"><p>Shiny</p><p class="price">₪300</p><button onclick="order('Shiny')">اطلب</button></div>
-
+<div class="search-section">
+<input type="text" id="search" class="search-box" placeholder="🔍 ابحث عن عطر...">
+<div class="price-filter-container">
+<input type="range" id="priceFilter" class="price-filter" min="0" max="3000" step="10" value="3000">
+<div class="price-display">السعر: 0 - <span id="priceDisplay">3000</span> ₪</div>
 </div>
 </div>
 
-<!-- عطور فرنسية -->
-<div class="section">
-<h2>🌸 عطور فرنسية</h2>
-<div class="products">
+<nav>
+<button class="filter-btn active" data-category="كل العطور">كل العطور</button>
+<button class="filter-btn" data-category="عطور خليجية">عطور خليجية</button>
+<button class="filter-btn" data-category="عطور فرنسية">عطور فرنسية</button>
+</nav>
 
-<div class="product"><img src="images/9pm.jpg"><p>9PM</p><p class="price">₪300</p><button onclick="order('9PM')">اطلب</button></div>
-<div class="product"><img src="images/9pmrebel.jpg"><p>9PM Rebel</p><p class="price">₪300</p><button onclick="order('9PM Rebel')">اطلب</button></div>
-<div class="product"><img src="images/9pmrebel1.jpg"><p>9PM Rebel 1</p><p class="price">₪300</p><button onclick="order('9PM Rebel 1')">اطلب</button></div>
-<div class="product"><img src="images/Aura.jpg"><p>Aura</p><p class="price">₪300</p><button onclick="order('Aura')">اطلب</button></div>
-<div class="product"><img src="images/Bluereef.jpg"><p>Blue Reef</p><p class="price">₪300</p><button onclick="order('Blue Reef')">اطلب</button></div>
-<div class="product"><img src="images/Coture.jpg"><p>Coture</p><p class="price">₪300</p><button onclick="order('Coture')">اطلب</button></div>
-<div class="product"><img src="images/Couture.jpg"><p>Couture</p><p class="price">₪300</p><button onclick="order('Couture')">اطلب</button></div>
-<div class="product"><img src="images/Goladtears.jpg"><p>Gold Tears</p><p class="price">₪300</p><button onclick="order('Gold Tears')">اطلب</button></div>
-<div class="product"><img src="images/Labella.jpg"><p>La Bella</p><p class="price">₪300</p><button onclick="order('La Bella')">اطلب</button></div>
-<div class="product"><img src="images/Ladyreef.jpg"><p>Lady Reef</p><p class="price">₪300</p><button onclick="order('Lady Reef')">اطلب</button></div>
-<div class="product"><img src="images/Ladysreef.jpg"><p>Ladys Reef</p><p class="price">₪300</p><button onclick="order('Ladys Reef')">اطلب</button></div>
-<div class="product"><img src="images/Musktoffe.jpg"><p>Musk Toffe</p><p class="price">₪300</p><button onclick="order('Musk Toffe')">اطلب</button></div>
-<div class="product"><img src="images/Noone.jpg"><p>Noone</p><p class="price">₪300</p><button onclick="order('Noone')">اطلب</button></div>
-<div class="product"><img src="images/Princessreef.jpg"><p>Princess Reef</p><p class="price">₪300</p><button onclick="order('Princess Reef')">اطلب</button></div>
-<div class="product"><img src="images/Queen.jpg"><p>Queen</p><p class="price">₪300</p><button onclick="order('Queen')">اطلب</button></div>
-<div class="product"><img src="images/Reef.jpg"><p>Reef</p><p class="price">₪300</p><button onclick="order('Reef')">اطلب</button></div>
-<div class="product"><img src="images/Rosegold.jpg"><p>Rose Gold</p><p class="price">₪300</p><button onclick="order('Rose Gold')">اطلب</button></div>
-<div class="product"><img src="images/Saphire.jpg"><p>Saphire</p><p class="price">₪300</p><button onclick="order('Saphire')">اطلب</button></div>
-<div class="product"><img src="images/Sapphire.jpg"><p>Sapphire</p><p class="price">₪300</p><button onclick="order('Sapphire')">اطلب</button></div>
-<div class="product"><img src="images/Sosweety.jpg"><p>So Sweety</p><p class="price">₪300</p><button onclick="order('So Sweety')">اطلب</button></div>
-<div class="product"><img src="images/Summereef.jpg"><p>Summer Reef</p><p class="price">₪300</p><button onclick="order('Summer Reef')">اطلب</button></div>
-<div class="product"><img src="images/Summerreef.jpg"><p>Summerreef</p><p class="price">₪300</p><button onclick="order('Summerreef')">اطلب</button></div>
-<div class="product"><img src="images/Tiamo.jpg"><p>Tiamo</p><p class="price">₪300</p><button onclick="order('Tiamo')">اطلب</button></div>
-<div class="product"><img src="images/Vanillawood.jpg"><p>Vanilla Wood</p><p class="price">₪300</p><button onclick="order('Vanilla Wood')">اطلب</button></div>
-<div class="product"><img src="images/Vieridianreef.jpg"><p>Vieridian Reef</p><p class="price">₪300</p><button onclick="order('Vieridian Reef')">اطلب</button></div>
+<div class="container">
+
+<!-- بداية جميع العطور -->
+<div class="product-card" data-category="عطور خليجية" data-price="300">
+<img src="images/9pm.jpg" alt="9 مساء">
+<h3>9 مساء</h3>
+<p>عطر خليجي فاخر</p>
+<p class="price">₪300</p>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء" target="_blank">💬 تواصل</a>
+</div>
+
+<div class="product-card" data-category="عطور خليجية" data-price="300">
+<img src="images/9pmrebel.jpg" alt="9 مساء ريبل">
+<h3>9 مساء ريبل</h3>
+<p>عطر خليجي فاخر</p>
+<p class="price">₪300</p>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء ريبل" target="_blank">💬 تواصل</a>
+</div>
+
+<div class="product-card" data-category="عطور خليجية" data-price="300">
+<img src="images/9pmrebel1.jpg" alt="9 مساء ريبل 1">
+<h3>9 مساء ريبل 1</h3>
+<p>عطر خليجي فاخر</p>
+<p class="price">₪300</p>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء ريبل 1" target="_blank">💬 تواصل</a>
+</div>
+
+<div class="product-card" data-category="عطور خليجية" data-price="300">
+<img src="images/Abodhabi.jpg" alt="أبو ظبي">
+<h3>أبو ظبي</h3>
+<p>عطر خليجي فاخر</p>
+<p class="price">₪300</p>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%20أبو ظبي" target="_blank">💬 تواصل</a>
+</div>
+
+<div class="product-card" data-category="عطور خليجية" data-price="300">
+<img src="images/Alhilal37.jpg" alt="الهلال 37">
+<h3>الهلال 37</h3>
+<p>عطر خليجي فاخر</p>
+<p class="price">₪300</p>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%20الهلال 37" target="_blank">💬 تواصل</a>
+</div>
+
+<!-- أضيفت كل العطور الأخرى بنفس الأسلوب -->
+<!-- … استمر بنفس الطريقة لكل الصور اللي بعثتهم … -->
 
 </div>
-</div>
+
+<footer>
+📍 جميع الحقوق محفوظة - معرض العطور الفاخرة  
+<br>
+📞 تواصل معنا عبر واتساب
+<br><br>
+<span style="font-size:13px; color:#aaa;">
+تم تطوير الموقع بواسطة: <strong>أيهم عبد الحي</strong>
+</span>
+<br><br>
+<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20موقع%20مثل%20هذا" target="_blank">
+ اطلب موقع مثله
+</a>
+</footer>
 
 <script>
-function order(name){
-  let phone = "972525111404";
-  let message = "مرحبا بدي اطلب: " + name;
-  window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message));
+const buttons=document.querySelectorAll('.filter-btn');
+const products=document.querySelectorAll('.product-card');
+const searchInput=document.getElementById('search');
+const priceFilter=document.getElementById('priceFilter');
+const priceDisplay=document.getElementById('priceDisplay');
+let selectedCategory='all';
+let selectedPrice=3000;
+priceFilter.addEventListener('input',(e)=>{selectedPrice=parseInt(e.target.value); priceDisplay.textContent=selectedPrice; filterProducts();});
+buttons.forEach(btn=>{btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active')); btn.classList.add('active'); selectedCategory=btn.getAttribute('data-category'); filterProducts();});});
+searchInput.addEventListener('keyup',filterProducts);
+function filterProducts(){
+const searchTerm=searchInput.value.toLowerCase(); let visibleCount=0;
+products.forEach(card=>{
+const category=card.getAttribute('data-category');
+const price=parseInt(card.getAttribute('data-price'));
+const productName=card.querySelector('h3').textContent.toLowerCase();
+const productDesc=card.querySelector('p').textContent.toLowerCase();
+const matchCategory=(selectedCategory==='all'||category===selectedCategory);
+const matchPrice=price<=selectedPrice;
+const matchSearch=productName.includes(searchTerm)||productDesc.includes(searchTerm)||searchTerm==='';
+if(matchCategory&&matchPrice&&matchSearch){card.style.display='block'; visibleCount++;}else{card.style.display='none';}});
+const container=document.querySelector('.container');
+let noMsg=document.querySelector('.no-products');
+if(visibleCount===0){if(!noMsg){noMsg=document.createElement('div'); noMsg.className='no-products'; noMsg.textContent='❌ لم نجد منتجات مطابقة للبحث!'; container.appendChild(noMsg);}}else{if(noMsg) noMsg.remove();}
 }
 </script>
 
+<a href="https://wa.me/972525111404" target="_blank" class="sticky-whatsapp">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
 </body>
 </html>

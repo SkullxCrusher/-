@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر العطور الفاخرة</title>
+
+<style>
+/* نفس التنسيق تبعك بدون تغيير */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Segoe UI', Tahoma;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  direction: rtl;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* SEARCH */
+.search-section {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+/* HERO */
+.hero {
+  height: 300px;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url("https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero h1 {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background: #222;
+}
+
+nav button {
+  padding: 10px 15px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin: 10px;
+}
+
+.product-card p {
+  margin: 10px;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.whatsapp-btn {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  background: #25D366;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>متجر العطور الخليجية والفرنسية</header>
+
+<div class="hero">
+  <h1>أفضل العطور الأصلية بأفخم الروائح</h1>
+</div>
+
+<nav>
+  <button class="filter-btn active" data-category="all">كل العطور</button>
+  <button class="filter-btn" data-category="خليجي">عطور خليجية</button>
+  <button class="filter-btn" data-category="فرنسي">عطور فرنسية</button>
+</nav>
+
+<div class="container">
+
+<!-- عطور خليجية -->
+<div class="product-card" data-category="خليجي" data-price="250">
+  <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg">
+  <h3>عطر عود فاخر</h3>
+  <p>رائحة عود شرقية قوية وفخمة</p>
+  <p class="price">₪250</p>
+  <a class="whatsapp-btn" href="https://wa.me/972529566989?text=بدي%20عطر%20عود">💬 اطلب الآن</a>
+</div>
+
+<div class="product-card" data-category="خليجي" data-price="300">
+  <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg">
+  <h3>مسك أبيض</h3>
+  <p>عطر ناعم وثابت لفترة طويلة</p>
+  <p class="price">₪300</p>
+  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
+</div>
+
+<!-- عطور فرنسية -->
+<div class="product-card" data-category="فرنسي" data-price="400">
+  <img src="https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg">
+  <h3>عطر شانيل</h3>
+  <p>رائحة أنثوية فاخرة</p>
+  <p class="price">₪400</p>
+  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
+</div>
+
+<div class="product-card" data-category="فرنسي" data-price="350">
+  <img src="https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg">
+  <h3>ديور سوفاج</h3>
+  <p>عطر رجالي قوي وجذاب</p>
+  <p class="price">₪350</p>
+  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
+</div>
+
+</div>
+
+<footer>
+جميع الحقوق محفوظة - متجر العطور  
+<br><br>
+<a class="whatsapp-btn" href="https://wa.me/972529566989">تواصل معنا</a>
+</footer>
+
+</body>
+</html>

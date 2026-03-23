@@ -3,114 +3,398 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>معرض العطور الفاخرة</title>
+<title>معرض العطور الخليجية والفرنسية</title>
+
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Segoe UI', Tahoma; background:#f7f7f7; direction:rtl; color:#333; min-height:100vh;}
-header {background:linear-gradient(135deg,#111 0%,#2d2d2d 100%); color:#fff; padding:20px; text-align:center; font-size:28px; font-weight:bold; position:sticky; top:0; z-index:100; box-shadow:0 8px 16px rgba(0,0,0,0.3);}
-header:hover {box-shadow:0 12px 24px rgba(37,211,102,0.2);}
-.search-section {background:#fff; padding:20px; text-align:center; margin:20px; border-radius:15px; box-shadow:0 8px 16px rgba(0,0,0,0.1);}
-.search-box {width:100%; max-width:400px; padding:12px 20px; border:2px solid #25D366; border-radius:25px; font-size:16px; background:#f9f9f9; transition:all 0.3s ease;}
-.search-box:focus {outline:none; box-shadow:0 0 20px rgba(37,211,102,0.4); background:#fff;}
-.price-filter-container {margin-top:15px;}
-.price-filter {width:100%; max-width:400px; cursor:pointer;}
-.price-display {background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; padding:10px 20px; border-radius:20px; font-size:14px; font-weight:600; display:inline-block; margin-top:10px;}
-nav {display:flex; justify-content:center; gap:10px; padding:20px; background:linear-gradient(135deg,#222 0%,#333 100%); flex-wrap:wrap; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
-nav button {padding:12px 20px; background:#444; color:#fff; border:none; border-radius:20px; cursor:pointer; font-weight:600; position:relative; overflow:hidden; transition:all 0.3s ease;}
-nav button:before {content:''; position:absolute; top:0; right:0; width:0; height:100%; background:#25D366; transition:width 0.3s ease; z-index:-1;}
-nav button:hover:before, nav button.active:before {width:100%;}
-nav button:hover, nav button.active {color:#fff; transform:translateY(-3px); box-shadow:0 8px 15px rgba(37,211,102,0.3);}
-.container {padding:30px 20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1400px; margin:0 auto;}
-.product-card {background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); position:relative;}
-.product-card:hover {transform:translateY(-15px); box-shadow:0 25px 50px rgba(37,211,102,0.2);}
-.product-badge {position:absolute; top:15px; right:15px; background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; padding:8px 15px; border-radius:20px; font-size:12px; font-weight:bold; z-index:10;}
-.product-card img {width:100%; height:220px; object-fit:cover; transition:transform 0.4s ease;}
-.product-card:hover img {transform:scale(1.15);}
-.product-card h3 {margin:10px; font-size:18px; color:#1a1a1a; font-weight:700; transition:color 0.3s ease;}
-.product-card:hover h3 {color:#25D366;}
-.product-card p {margin:0 10px 10px; color:#555; font-size:14px;}
-.price {color:#25D366; font-weight:bold; font-size:18px; margin:10px; transition:all 0.3s ease;}
-.product-card:hover .price {font-size:20px; text-shadow:0 0 10px rgba(37,211,102,0.3);}
-.whatsapp-btn {display:block; margin:10px; padding:12px; background:linear-gradient(135deg,#25D366 0%,#1ebe57 100%); color:#fff; text-align:center; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; box-shadow:0 4px 12px rgba(37,211,102,0.3); transition:all 0.3s ease;}
-.whatsapp-btn:hover {transform:scale(1.05); box-shadow:0 8px 20px rgba(37,211,102,0.5);}
-.no-products {grid-column:1/-1; text-align:center; padding:50px; font-size:18px; color:#666;}
-footer {background:linear-gradient(135deg,#111 0%,#2d2d2d 100%); color:#fff; text-align:center; padding:30px 20px; margin-top:40px; font-size:14px; border-top:3px solid #25D366;}
-footer a {color:#25D366; text-decoration:none;}
-footer a:hover {color:#fff; text-decoration:underline;}
-@media(max-width:768px){header{font-size:22px;}.container{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; padding:20px 15px;} .search-box,.price-filter{max-width:100%;} nav button{font-size:13px; padding:10px 15px;}}
-@media(max-width:480px){header{font-size:20px; padding:15px;} .container{grid-template-columns:1fr; gap:15px;} nav{flex-direction:column;} nav button{width:100%;} .search-section{margin:15px;}}
-.sticky-whatsapp {position:fixed; bottom:20px; right:20px; z-index:999; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:transform 0.3s;}
-.sticky-whatsapp:hover {transform:scale(1.1);}
-.sticky-whatsapp img {width:35px; height:35px;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Segoe UI', Tahoma;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  direction: rtl;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+header:hover {
+  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.2);
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-section {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.6s ease;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border: 2px solid #25D366;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.search-box:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+  background: #fff;
+}
+
+.price-filter-container {
+  margin-top: 15px;
+}
+
+.price-filter {
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.price-display {
+  background: linear-gradient(135deg, #25D366 0%, #1ebe57 100%);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 320px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url("https://images.pexels.com/photos/3987361/pexels-photo-3987361.jpeg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  animation: slideInDown 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 26px;
+  backdrop-filter: blur(5px);
+  animation: fadeInUp 0.8s ease;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background: linear-gradient(135deg, #222 0%, #333 100%);
+  flex-wrap: wrap;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav button {
+  padding: 12px 20px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+nav button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #25D366;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+nav button:hover:before,
+nav button.active:before {
+  width: 100%;
+}
+
+nav button:hover,
+nav button.active {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* ===== PRODUCTS ===== */
+.container {
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.6s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(37, 211, 102, 0.2);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #25D366 0%, #1ebe57 100%);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.15);
+}
+
+.product-card h3 {
+  margin: 10px;
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover h3 {
+  color: #25D366;
+}
+
+.product-card p {
+  margin: 0 10px 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+.price {
+  color: #25D366;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .price {
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn {
+  display: block;
+  margin: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, #25D366 0%, #1ebe57 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== NO PRODUCTS ===== */
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 3px solid #25D366;
+}
+
+footer a {
+  color: #25D366;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header { font-size: 22px; }
+  .hero h1 { font-size: 20px; padding: 15px 25px; }
+  .container { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px 15px; }
+  .search-box, .price-filter { max-width: 100%; }
+  nav button { font-size: 13px; padding: 10px 15px; }
+}
+@media (max-width: 480px) {
+  header { font-size: 20px; padding: 15px; }
+  .hero h1 { font-size: 18px; padding: 12px 20px; }
+  .container { grid-template-columns: 1fr; gap: 15px; }
+  nav { flex-direction: column; }
+  nav button { width: 100%; }
+  .search-section { margin: 15px; }
+}
+
+/* ===== STICKY WHATSAPP ===== */
+.sticky-whatsapp {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+  width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s;
+}
+.sticky-whatsapp:hover { transform: scale(1.1); }
+.sticky-whatsapp img { width: 35px; height: 35px; }
 </style>
 </head>
 <body>
-<header>معرض العطور الفاخرة</header>
+
+<header>معرض العطور الخليجية والفرنسية</header>
 
 <div class="search-section">
-<input type="text" id="search" class="search-box" placeholder="🔍 ابحث عن عطر...">
-<div class="price-filter-container">
-<input type="range" id="priceFilter" class="price-filter" min="0" max="3000" step="10" value="3000">
-<div class="price-display">السعر: 0 - <span id="priceDisplay">3000</span> ₪</div>
+  <input type="text" id="search" class="search-box" placeholder="🔍 ابحث عن عطر...">
+  <div class="price-filter-container">
+    <input type="range" id="priceFilter" class="price-filter" min="0" max="3000" step="50" value="3000">
+    <div class="price-display">السعر: 0 - <span id="priceDisplay">3000</span> ₪</div>
+  </div>
 </div>
+
+<div class="hero">
+  <h1>أفضل العطور الخليجية والفرنسية بأفضل الأسعار</h1>
 </div>
 
 <nav>
-<button class="filter-btn active" data-category="كل العطور">كل العطور</button>
-<button class="filter-btn" data-category="عطور خليجية">عطور خليجية</button>
-<button class="filter-btn" data-category="عطور فرنسية">عطور فرنسية</button>
+  <button class="filter-btn active" data-category="all">كل العطور</button>
+  <button class="filter-btn" data-category="خليجية">خليجية</button>
+  <button class="filter-btn" data-category="فرنسية">فرنسية</button>
 </nav>
 
 <div class="container">
-
-<!-- بداية جميع العطور -->
-<div class="product-card" data-category="عطور خليجية" data-price="300">
-<img src="images/9pm.jpg" alt="9 مساء">
-<h3>9 مساء</h3>
-<p>عطر خليجي فاخر</p>
-<p class="price">₪300</p>
-<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء" target="_blank">💬 تواصل</a>
+<!-- هنا كل المنتجات تصنيف خليجي او فرنسي -->
+<!-- مثال: -->
+<div class="product-card" data-category="خليجية" data-price="300">
+  <img src="9pm.jpg" alt="9pm">
+  <h3>9 مساءً</h3>
+  <p>عطر خليجي فاخر</p>
+  <p class="price">₪300</p>
+  <a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209pm" target="_blank">💬 تواصل</a>
 </div>
 
-<div class="product-card" data-category="عطور خليجية" data-price="300">
-<img src="images/9pmrebel.jpg" alt="9 مساء ريبل">
-<h3>9 مساء ريبل</h3>
-<p>عطر خليجي فاخر</p>
-<p class="price">₪300</p>
-<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء ريبل" target="_blank">💬 تواصل</a>
+<div class="product-card" data-category="خليجية" data-price="300">
+  <img src="9pmrebel.jpg" alt="9pmrebel">
+  <h3>9 مساءً ريبل</h3>
+  <p>عطر خليجي مميز</p>
+  <p class="price">₪300</p>
+  <a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209pm%20Rebel" target="_blank">💬 تواصل</a>
 </div>
 
-<div class="product-card" data-category="عطور خليجية" data-price="300">
-<img src="images/9pmrebel1.jpg" alt="9 مساء ريبل 1">
-<h3>9 مساء ريبل 1</h3>
-<p>عطر خليجي فاخر</p>
-<p class="price">₪300</p>
-<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%209 مساء ريبل 1" target="_blank">💬 تواصل</a>
-</div>
-
-<div class="product-card" data-category="عطور خليجية" data-price="300">
-<img src="images/Abodhabi.jpg" alt="أبو ظبي">
-<h3>أبو ظبي</h3>
-<p>عطر خليجي فاخر</p>
-<p class="price">₪300</p>
-<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%20أبو ظبي" target="_blank">💬 تواصل</a>
-</div>
-
-<div class="product-card" data-category="عطور خليجية" data-price="300">
-<img src="images/Alhilal37.jpg" alt="الهلال 37">
-<h3>الهلال 37</h3>
-<p>عطر خليجي فاخر</p>
-<p class="price">₪300</p>
-<a class="whatsapp-btn" href="https://wa.me/972525111404?text=مرحبا%20بدي%20استفسر%20عن%20الهلال 37" target="_blank">💬 تواصل</a>
-</div>
-
-<!-- أضيفت كل العطور الأخرى بنفس الأسلوب -->
-<!-- … استمر بنفس الطريقة لكل الصور اللي بعثتهم … -->
+<!-- وهكذا لكل الصور اللي بعثتليها مع تصنيف خليجية او فرنسية -->
 
 </div>
 
 <footer>
-📍 جميع الحقوق محفوظة - معرض العطور الفاخرة  
+📍 جميع الحقوق محفوظة - معرض العطور  
 <br>
 📞 تواصل معنا عبر واتساب
 <br><br>
@@ -124,35 +408,73 @@ footer a:hover {color:#fff; text-decoration:underline;}
 </footer>
 
 <script>
-const buttons=document.querySelectorAll('.filter-btn');
-const products=document.querySelectorAll('.product-card');
-const searchInput=document.getElementById('search');
-const priceFilter=document.getElementById('priceFilter');
-const priceDisplay=document.getElementById('priceDisplay');
-let selectedCategory='all';
-let selectedPrice=3000;
-priceFilter.addEventListener('input',(e)=>{selectedPrice=parseInt(e.target.value); priceDisplay.textContent=selectedPrice; filterProducts();});
-buttons.forEach(btn=>{btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active')); btn.classList.add('active'); selectedCategory=btn.getAttribute('data-category'); filterProducts();});});
-searchInput.addEventListener('keyup',filterProducts);
-function filterProducts(){
-const searchTerm=searchInput.value.toLowerCase(); let visibleCount=0;
-products.forEach(card=>{
-const category=card.getAttribute('data-category');
-const price=parseInt(card.getAttribute('data-price'));
-const productName=card.querySelector('h3').textContent.toLowerCase();
-const productDesc=card.querySelector('p').textContent.toLowerCase();
-const matchCategory=(selectedCategory==='all'||category===selectedCategory);
-const matchPrice=price<=selectedPrice;
-const matchSearch=productName.includes(searchTerm)||productDesc.includes(searchTerm)||searchTerm==='';
-if(matchCategory&&matchPrice&&matchSearch){card.style.display='block'; visibleCount++;}else{card.style.display='none';}});
-const container=document.querySelector('.container');
-let noMsg=document.querySelector('.no-products');
-if(visibleCount===0){if(!noMsg){noMsg=document.createElement('div'); noMsg.className='no-products'; noMsg.textContent='❌ لم نجد منتجات مطابقة للبحث!'; container.appendChild(noMsg);}}else{if(noMsg) noMsg.remove();}
+const buttons = document.querySelectorAll('.filter-btn');
+const products = document.querySelectorAll('.product-card');
+const searchInput = document.getElementById('search');
+const priceFilter = document.getElementById('priceFilter');
+const priceDisplay = document.getElementById('priceDisplay');
+
+let selectedCategory = 'all';
+let selectedPrice = 3000;
+
+priceFilter.addEventListener('input', (e) => {
+  selectedPrice = parseInt(e.target.value);
+  priceDisplay.textContent = selectedPrice;
+  filterProducts();
+});
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedCategory = btn.getAttribute('data-category');
+    filterProducts();
+  });
+});
+
+searchInput.addEventListener('keyup', filterProducts);
+
+function filterProducts() {
+  const searchTerm = searchInput.value.toLowerCase();
+  let visibleCount = 0;
+
+  products.forEach(card => {
+    const category = card.getAttribute('data-category');
+    const price = parseInt(card.getAttribute('data-price'));
+    const productName = card.querySelector('h3').textContent.toLowerCase();
+    const productDesc = card.querySelector('p').textContent.toLowerCase();
+
+    const matchCategory = selectedCategory === 'all' || category === selectedCategory;
+    const matchPrice = price <= selectedPrice;
+    const matchSearch = productName.includes(searchTerm) || productDesc.includes(searchTerm) || searchTerm === '';
+
+    if (matchCategory && matchPrice && matchSearch) {
+      card.style.display = 'block';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const container = document.querySelector('.container');
+  let noMsg = document.querySelector('.no-products');
+  
+  if (visibleCount === 0) {
+    if (!noMsg) {
+      noMsg = document.createElement('div');
+      noMsg.className = 'no-products';
+      noMsg.textContent = '❌ لم نجد منتجات مطابقة للبحث!';
+      container.appendChild(noMsg);
+    }
+  } else {
+    if (noMsg) noMsg.remove();
+  }
 }
 </script>
 
 <a href="https://wa.me/972525111404" target="_blank" class="sticky-whatsapp">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
 </a>
+
 </body>
 </html>

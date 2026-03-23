@@ -3,191 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متجر العطور الفاخرة</title>
+<title>متجر العطور</title>
 
 <style>
-/* نفس التنسيق تبعك بدون تغيير */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family:'Segoe UI', Tahoma;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  direction: rtl;
-  color: #333;
-  min-height: 100vh;
+  font-family: Arial;
+  background: #111;
+  color: white;
+  text-align: center;
 }
 
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #111 0%, #2d2d2d 100%);
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-/* SEARCH */
-.search-section {
-  background: #fff;
-  padding: 20px;
-  text-align: center;
+h1 {
   margin: 20px;
-  border-radius: 15px;
 }
 
-/* HERO */
-.hero {
-  height: 300px;
-  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-  url("https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg") center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+.section {
+  margin-top: 40px;
 }
 
-.hero h1 {
-  background: rgba(0,0,0,0.6);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-  background: #222;
-}
-
-nav button {
-  padding: 10px 15px;
-  background: #444;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* PRODUCTS */
-.container {
-  padding: 20px;
+.products {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 15px;
 }
 
-.product-card {
-  background: #fff;
+.product {
+  background: #222;
+  padding: 10px;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.product-card img {
+.product img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  margin: 10px;
-}
-
-.product-card p {
-  margin: 10px;
+  border-radius: 10px;
 }
 
 .price {
-  color: green;
+  color: #25D366;
   font-weight: bold;
-  margin: 10px;
+  margin-top: 5px;
 }
 
-.whatsapp-btn {
-  display: block;
-  margin: 10px;
-  padding: 10px;
+button {
   background: #25D366;
-  color: #fff;
-  text-align: center;
+  border: none;
+  padding: 10px;
+  color: white;
+  margin-top: 5px;
   border-radius: 5px;
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<header>متجر العطور الخليجية والفرنسية</header>
-
-<div class="hero">
-  <h1>أفضل العطور الأصلية بأفخم الروائح</h1>
-</div>
-
-<nav>
-  <button class="filter-btn active" data-category="all">كل العطور</button>
-  <button class="filter-btn" data-category="خليجي">عطور خليجية</button>
-  <button class="filter-btn" data-category="فرنسي">عطور فرنسية</button>
-</nav>
-
-<div class="container">
+<h1>متجر العطور</h1>
 
 <!-- عطور خليجية -->
-<div class="product-card" data-category="خليجي" data-price="250">
-  <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg">
-  <h3>عطر عود فاخر</h3>
-  <p>رائحة عود شرقية قوية وفخمة</p>
-  <p class="price">₪250</p>
-  <a class="whatsapp-btn" href="https://wa.me/972529566989?text=بدي%20عطر%20عود">💬 اطلب الآن</a>
-</div>
+<div class="section">
+<h2>🔥 عطور خليجية</h2>
+<div class="products">
 
-<div class="product-card" data-category="خليجي" data-price="300">
-  <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg">
-  <h3>مسك أبيض</h3>
-  <p>عطر ناعم وثابت لفترة طويلة</p>
-  <p class="price">₪300</p>
-  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
+<div class="product"><img src="images/Dakhonamber.jpg"><p>Dakhon Amber</p><p class="price">₪300</p><button onclick="order('Dakhon Amber')">اطلب</button></div>
+<div class="product"><img src="images/Dakhoomdesert.jpg"><p>Dakhoom Desert</p><p class="price">₪300</p><button onclick="order('Dakhoom Desert')">اطلب</button></div>
+<div class="product"><img src="images/Dakhoonrose.jpg"><p>Dakhoon Rose</p><p class="price">₪300</p><button onclick="order('Dakhoon Rose')">اطلب</button></div>
+<div class="product"><img src="images/Dokhoonleather.jpg"><p>Dokhoon Leather</p><p class="price">₪300</p><button onclick="order('Dokhoon Leather')">اطلب</button></div>
+<div class="product"><img src="images/Dokhoonoud.jpg"><p>Dokhoon Oud</p><p class="price">₪300</p><button onclick="order('Dokhoon Oud')">اطلب</button></div>
+<div class="product"><img src="images/Dokhonamber.jpg"><p>Dokhon Amber</p><p class="price">₪300</p><button onclick="order('Dokhon Amber')">اطلب</button></div>
+<div class="product"><img src="images/Dokhonemirate.jpg"><p>Dokhon Emirate</p><p class="price">₪300</p><button onclick="order('Dokhon Emirate')">اطلب</button></div>
+<div class="product"><img src="images/Dokhonleather.jpg"><p>Dokhon Leather</p><p class="price">₪300</p><button onclick="order('Dokhon Leather')">اطلب</button></div>
+<div class="product"><img src="images/Bluedakhoon.jpg"><p>Blue Dakhoun</p><p class="price">₪300</p><button onclick="order('Blue Dakhoun')">اطلب</button></div>
+<div class="product"><img src="images/Abodhabi.jpg"><p>Abu Dhabi</p><p class="price">₪300</p><button onclick="order('Abu Dhabi')">اطلب</button></div>
+<div class="product"><img src="images/Dubai.jpg"><p>Dubai</p><p class="price">₪300</p><button onclick="order('Dubai')">اطلب</button></div>
+<div class="product"><img src="images/Doha.jpg"><p>Doha</p><p class="price">₪300</p><button onclick="order('Doha')">اطلب</button></div>
+<div class="product"><img src="images/Muscat.jpg"><p>Muscat</p><p class="price">₪300</p><button onclick="order('Muscat')">اطلب</button></div>
+<div class="product"><img src="images/Farisalarab.jpg"><p>Faris Al Arab</p><p class="price">₪300</p><button onclick="order('Faris Al Arab')">اطلب</button></div>
+<div class="product"><img src="images/Kahilan.jpg"><p>Kahilan</p><p class="price">₪300</p><button onclick="order('Kahilan')">اطلب</button></div>
+<div class="product"><img src="images/Kohailan.jpg"><p>Kohailan</p><p class="price">₪300</p><button onclick="order('Kohailan')">اطلب</button></div>
+<div class="product"><img src="images/Khayal.jpg"><p>Khayal</p><p class="price">₪300</p><button onclick="order('Khayal')">اطلب</button></div>
+<div class="product"><img src="images/Muharib.jpg"><p>Muharib</p><p class="price">₪300</p><button onclick="order('Muharib')">اطلب</button></div>
+<div class="product"><img src="images/Lahab.jpg"><p>Lahab</p><p class="price">₪300</p><button onclick="order('Lahab')">اطلب</button></div>
+<div class="product"><img src="images/Hanet.jpg"><p>Hanet</p><p class="price">₪300</p><button onclick="order('Hanet')">اطلب</button></div>
+<div class="product"><img src="images/Signature.jpg"><p>Signature</p><p class="price">₪300</p><button onclick="order('Signature')">اطلب</button></div>
+<div class="product"><img src="images/Signaturesilver.jpg"><p>Signature Silver</p><p class="price">₪300</p><button onclick="order('Signature Silver')">اطلب</button></div>
+<div class="product"><img src="images/Supermacy.jpg"><p>Supermacy</p><p class="price">₪300</p><button onclick="order('Supermacy')">اطلب</button></div>
+<div class="product"><img src="images/Shiny.jpg"><p>Shiny</p><p class="price">₪300</p><button onclick="order('Shiny')">اطلب</button></div>
+
+</div>
 </div>
 
 <!-- عطور فرنسية -->
-<div class="product-card" data-category="فرنسي" data-price="400">
-  <img src="https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg">
-  <h3>عطر شانيل</h3>
-  <p>رائحة أنثوية فاخرة</p>
-  <p class="price">₪400</p>
-  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
+<div class="section">
+<h2>🌸 عطور فرنسية</h2>
+<div class="products">
+
+<div class="product"><img src="images/9pm.jpg"><p>9PM</p><p class="price">₪300</p><button onclick="order('9PM')">اطلب</button></div>
+<div class="product"><img src="images/9pmrebel.jpg"><p>9PM Rebel</p><p class="price">₪300</p><button onclick="order('9PM Rebel')">اطلب</button></div>
+<div class="product"><img src="images/9pmrebel1.jpg"><p>9PM Rebel 1</p><p class="price">₪300</p><button onclick="order('9PM Rebel 1')">اطلب</button></div>
+<div class="product"><img src="images/Aura.jpg"><p>Aura</p><p class="price">₪300</p><button onclick="order('Aura')">اطلب</button></div>
+<div class="product"><img src="images/Bluereef.jpg"><p>Blue Reef</p><p class="price">₪300</p><button onclick="order('Blue Reef')">اطلب</button></div>
+<div class="product"><img src="images/Coture.jpg"><p>Coture</p><p class="price">₪300</p><button onclick="order('Coture')">اطلب</button></div>
+<div class="product"><img src="images/Couture.jpg"><p>Couture</p><p class="price">₪300</p><button onclick="order('Couture')">اطلب</button></div>
+<div class="product"><img src="images/Goladtears.jpg"><p>Gold Tears</p><p class="price">₪300</p><button onclick="order('Gold Tears')">اطلب</button></div>
+<div class="product"><img src="images/Labella.jpg"><p>La Bella</p><p class="price">₪300</p><button onclick="order('La Bella')">اطلب</button></div>
+<div class="product"><img src="images/Ladyreef.jpg"><p>Lady Reef</p><p class="price">₪300</p><button onclick="order('Lady Reef')">اطلب</button></div>
+<div class="product"><img src="images/Ladysreef.jpg"><p>Ladys Reef</p><p class="price">₪300</p><button onclick="order('Ladys Reef')">اطلب</button></div>
+<div class="product"><img src="images/Musktoffe.jpg"><p>Musk Toffe</p><p class="price">₪300</p><button onclick="order('Musk Toffe')">اطلب</button></div>
+<div class="product"><img src="images/Noone.jpg"><p>Noone</p><p class="price">₪300</p><button onclick="order('Noone')">اطلب</button></div>
+<div class="product"><img src="images/Princessreef.jpg"><p>Princess Reef</p><p class="price">₪300</p><button onclick="order('Princess Reef')">اطلب</button></div>
+<div class="product"><img src="images/Queen.jpg"><p>Queen</p><p class="price">₪300</p><button onclick="order('Queen')">اطلب</button></div>
+<div class="product"><img src="images/Reef.jpg"><p>Reef</p><p class="price">₪300</p><button onclick="order('Reef')">اطلب</button></div>
+<div class="product"><img src="images/Rosegold.jpg"><p>Rose Gold</p><p class="price">₪300</p><button onclick="order('Rose Gold')">اطلب</button></div>
+<div class="product"><img src="images/Saphire.jpg"><p>Saphire</p><p class="price">₪300</p><button onclick="order('Saphire')">اطلب</button></div>
+<div class="product"><img src="images/Sapphire.jpg"><p>Sapphire</p><p class="price">₪300</p><button onclick="order('Sapphire')">اطلب</button></div>
+<div class="product"><img src="images/Sosweety.jpg"><p>So Sweety</p><p class="price">₪300</p><button onclick="order('So Sweety')">اطلب</button></div>
+<div class="product"><img src="images/Summereef.jpg"><p>Summer Reef</p><p class="price">₪300</p><button onclick="order('Summer Reef')">اطلب</button></div>
+<div class="product"><img src="images/Summerreef.jpg"><p>Summerreef</p><p class="price">₪300</p><button onclick="order('Summerreef')">اطلب</button></div>
+<div class="product"><img src="images/Tiamo.jpg"><p>Tiamo</p><p class="price">₪300</p><button onclick="order('Tiamo')">اطلب</button></div>
+<div class="product"><img src="images/Vanillawood.jpg"><p>Vanilla Wood</p><p class="price">₪300</p><button onclick="order('Vanilla Wood')">اطلب</button></div>
+<div class="product"><img src="images/Vieridianreef.jpg"><p>Vieridian Reef</p><p class="price">₪300</p><button onclick="order('Vieridian Reef')">اطلب</button></div>
+
+</div>
 </div>
 
-<div class="product-card" data-category="فرنسي" data-price="350">
-  <img src="https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg">
-  <h3>ديور سوفاج</h3>
-  <p>عطر رجالي قوي وجذاب</p>
-  <p class="price">₪350</p>
-  <a class="whatsapp-btn" href="#">💬 اطلب الآن</a>
-</div>
-
-</div>
-
-<footer>
-جميع الحقوق محفوظة - متجر العطور  
-<br><br>
-<a class="whatsapp-btn" href="https://wa.me/972529566989">تواصل معنا</a>
-</footer>
+<script>
+function order(name){
+  let phone = "972525111404";
+  let message = "مرحبا بدي اطلب: " + name;
+  window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message));
+}
+</script>
 
 </body>
 </html>
